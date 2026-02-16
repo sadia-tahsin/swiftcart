@@ -61,9 +61,12 @@ const displayProductByCategory = data => {
                     </div>
 
                     <div class="mt-4 flex gap-2">
-                        <button class="btn btn-outline btn-sm flex-1">
-                            Details
+                        <button 
+                        onclick="loadProductDetails(${item.id})"
+                        class="btn btn-outline btn-sm flex-1">
+                        Details
                         </button>
+
                         <button class="btn bg-indigo-600 text-white btn-sm flex-1 hover:bg-indigo-700 border-none">
                             Add
                         </button>
@@ -74,6 +77,51 @@ const displayProductByCategory = data => {
 
         productsGrid.append(prodCard)
     }
+}
+const loadProductDetails = (id) => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(res => res.json())
+        .then(data => showProductModal(data))
+}
+const showProductModal = (product) => {
+    const modalContent = document.getElementById("modal-content")
+
+    modalContent.innerHTML = `
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <div class="bg-gray-100 p-6 flex items-center justify-center rounded">
+                <img src="${product.image}" 
+                     class="h-60 object-contain" />
+            </div>
+
+            <div>
+                <h2 class="text-xl font-bold mb-3">
+                    ${product.title}
+                </h2>
+
+                <p class="text-gray-600 text-sm mb-4">
+                    ${product.description}
+                </p>
+
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-2xl font-bold text-indigo-600">
+                        $${product.price}
+                    </p>
+
+                    <p class="text-yellow-500 font-semibold">
+                         ${product.rating.rate} 
+                        (${product.rating.count} reviews)
+                    </p>
+                </div>
+
+                <button class="btn bg-indigo-600 text-white w-full hover:bg-indigo-700 border-none">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    `
+
+    document.getElementById("productModal").showModal()
 }
 
 loadcategories()

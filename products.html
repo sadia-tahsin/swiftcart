@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftCart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>All Products</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
- <section id="navbar" >
+    <section id="navbar" >
     <div class="navbar bg-base-100 shadow-sm">
   <div class="navbar-start px-6">
 
@@ -17,8 +17,8 @@
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-lg font-semibold">
-      <li class="text-blue-600"><a>Home</a></li>
-     <li><a href="products.html">Products</a></li>
+      <li><a href="index.html">Home</a></li>
+     <li class="text-blue-600"><a href="products.html">Products</a></li>
 
       <li><a>About</a></li>
       <li><a>Contact</a></li>
@@ -33,8 +33,8 @@
       <ul
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-       <li class="text-blue-600"><a>Home</a></li>
-      <li><a href="products.html">Products</a></li>
+       <li><a>Home</a></li>
+      <li class="text-blue-600"><a href="products.html">Products</a></li>
 
       <li><a>About</a></li>
       <li><a>Contact</a></li>
@@ -43,102 +43,18 @@
   </div>
 </div>
  </section> 
-<section id="banner"
-  class="relative h-screen bg-[url('./images/banner-image.png')] bg-cover bg-center">
-
-  <!-- Dark Gradient Overlay -->
-   <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20"></div> 
-
-  <!-- Content -->
-  <div class="relative flex items-center h-full px-20"> 
-   <div class="text-white max-w-xl">
-      <h1 class="text-5xl font-bold mb-4">
-        Best Collection For You
-      </h1>
-      <p class="mb-6 text-lg text-gray-200">
-        Discover the latest trends in fashion, electronics, and more.
-        Shop with confidence and style at SwiftCart.
-      </p>
-      <button class="btn bg-indigo-600 hover:bg-indigo-700 text-white border-none">
-        Shop Now
-      </button>
-    </div>
-  </div>
-
-</section>
-
-<section id="why_choose_us" class="justify-center items-center mx-auto p-20 text-center bg-base-200">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-3">Why Choose Us</h2>
-    <p class="text-gray-500">
-      We provide the best shopping experience with top-notch services.
-    </p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16">
-    <!-- Card 1 -->
-    <div class="card bg-base-100 shadow-md hover:shadow-xl transition">
-      <div class="card-body items-center text-center">
-        <div class="text-indigo-600 text-3xl mb-3">
-          <i class="fa-solid fa-truck"></i>
+ <section id="mid">
+    <div class="text-center py-5">
+        <h2 class="text-4xl font-bold">Our Products</h2>
+        <div id="categoryBtn" class="flex justify-center space-y-2 space-x-2 my-4 p-5 flex-wrap">
+            <!-- will be dynamically loaded -->
         </div>
-        <h3 class="card-title">Fast Delivery</h3>
-        <p class="text-gray-500">
-          Get your orders delivered to your doorstep quickly and efficiently.
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card bg-base-100 shadow-md hover:shadow-xl transition">
-      <div class="card-body items-center text-center">
-        <div class="text-indigo-600 text-3xl mb-3">
-          <i class="fa-solid fa-headset"></i>
+        <div id="products-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+   <!-- will be dynamically loaded -->
         </div>
-        <h3 class="card-title">24/7 Support</h3>
-        <p class="text-gray-500">
-          Our support team is available around the clock to assist you.
-        </p>
-      </div>
     </div>
-
-    <!-- Card 3 -->
-    <div class="card bg-base-100 shadow-md hover:shadow-xl transition">
-      <div class="card-body items-center text-center">
-        <div class="text-indigo-600 text-3xl mb-3">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h3 class="card-title">Secure Payment</h3>
-        <p class="text-gray-500">
-          Experience safe and secure transactions with our encrypted system.
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card bg-base-100 shadow-md hover:shadow-xl transition">
-      <div class="card-body items-center text-center">
-        <div class="text-indigo-600 text-3xl mb-3">
-          <i class="fa-solid fa-rotate"></i>
-        </div>
-        <h3 class="card-title">Easy Returns</h3>
-        <p class="text-gray-500">
-          Not satisfied? Return your products easily within 30 days.
-        </p>
-      </div>
-    </div>
-  </div>
-
-    </div>
-</section>
-<section class="p-20 ">
-    <h2 class="text-3xl font-bold mb-20">Trending Now</h2> 
-    <div id="trending-container"
-     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-</div>
-
-</section>
-<section id="footer" class="bg-neutral text-neutral-content py-12">
+ </section>
+   <section id="footer" class="bg-neutral text-neutral-content py-12">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
 
     <!-- Brand -->
@@ -236,7 +152,7 @@
 
 
 </section>
+ <script src="./script/products.js"></script>
 
-  <script src="./script/index.js"></script>
 </body>
 </html>

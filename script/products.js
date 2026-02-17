@@ -5,12 +5,23 @@ const loadcategories = () =>{
     .then(data=>displayCategories(data))
 } 
 const displayCategories = (data) => {
+    
     const categoryBtn = document.getElementById("categoryBtn")
     categoryBtn.innerHTML = ""
+    // Add "ALL" button first
+    const allBtn = document.createElement("div")
+    allBtn.innerHTML = `
+        <div id="btn_all" class="btn cat_btn"
+             onclick="loadAllProducts()">
+             All
+        </div>
+    `
+    categoryBtn.append(allBtn)
 
     for (let item of data) {
         const btn = document.createElement("button")
-        btn.className = "btn bg-gray-200 rounded-l"
+        btn.id=`btn_${item}`
+        btn.className = "btn bg-gray-200 rounded-l cat_btn"
         btn.innerText = item
 
         btn.addEventListener("click", () => {
@@ -20,15 +31,29 @@ const displayCategories = (data) => {
         categoryBtn.append(btn)
     }
 }
-
+const loadAllProducts=()=>{
+  const url = "https://fakestoreapi.com/products"
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>{
+        removeActive()
+        const clickedBtn = document.getElementById("btn_all")
+        console.log(clickedBtn)
+        clickedBtn.classList.add('active')
+        displayProductByCategory(data)})
+} 
 const loadProductByCategory = category => {
     const url = `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`
 
     fetch(url)
         .then(res => res.json())
-        .then(data => displayProductByCategory(data))
+        .then(data => {
+            removeActive()
+            const clickedBtn = document.getElementById(`btn_${category}`)
+            console.log(clickedBtn)
+            clickedBtn.classList.add("active")
+            displayProductByCategory(data)})
 }
-
 const displayProductByCategory = data => {
     const productsGrid = document.getElementById("products-grid")
     productsGrid.innerHTML = ""
@@ -123,5 +148,10 @@ const showProductModal = (product) => {
 
     document.getElementById("productModal").showModal()
 }
+const removeActive = ()=>{
+const activeList = document.querySelectorAll(".cat_btn")
+activeList.forEach(btn=>btn.classList.remove("active"))
+}
 
 loadcategories()
+loadAllProducts()
